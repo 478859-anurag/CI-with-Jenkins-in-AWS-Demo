@@ -1,0 +1,17 @@
+pipeline {
+    agent any 
+    tools { 
+        maven 'Maven 3.3.9'
+        }
+    stages {
+        stage('checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '478859_GITHUB', url: 'https://github.com/478859-anurag/CI-with-Jenkins-in-AWS-Demo.git']]])
+            }
+        }
+        stage ('Build') {
+            steps {
+                sh 'mvn package' 
+            }
+    }
+}
