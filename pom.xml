@@ -10,7 +10,7 @@
     <modules>
         <module>project</module>
     </modules>
-
+<!-- Comment added to check git jenkis webhook is working or not -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
