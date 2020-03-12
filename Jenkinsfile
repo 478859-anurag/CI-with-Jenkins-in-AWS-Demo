@@ -3,7 +3,7 @@ pipeline {
 	environment {
 		
 		PROJECT_ID = 'helical-door-261014'
-                CLUSTER_NAME = 'k8s-cluster1'
+                CLUSTER_NAME = 'kube-demo'
                 LOCATION = 'europe-north1-c'
                 CREDENTIALS_ID = 'kubernetes'		
 	}
