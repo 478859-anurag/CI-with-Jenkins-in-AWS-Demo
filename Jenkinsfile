@@ -44,7 +44,7 @@ pipeline {
 			   docker.withRegistry('https://registry.hub.docker.com', 'Docker-Hub-Credentials') {
                             myapp.push("${env.BUILD_ID}")
 			    */
-			   docker.withRegistry('https://gcr.io', 'gcr:gccredential') {
+			   docker.withRegistry('https://gcr.io', 'gcr:gcrcredential') {
                             myapp.push("${env.BUILD_ID}")
 			   }
 		   }
