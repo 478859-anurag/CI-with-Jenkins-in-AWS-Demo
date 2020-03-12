@@ -30,7 +30,7 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-                      myapp = docker.build("anurag/k8s:${env.BUILD_ID}")
+                      myapp = docker.build("478859/super-league:${env.BUILD_ID}")
 		      
                    }
                 }
