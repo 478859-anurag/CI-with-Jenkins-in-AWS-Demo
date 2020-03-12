@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: myapp
+ name: webappl
  labels:
-  app: myapp
+  app: webappl
 spec:
- replicas: 1
+ replicas: 2
  selector:
   matchLabels:
-   app: myapp
+   app: webappl
  template:
   metadata: 
    labels:
-    app: myapp
+    app: webappl
   spec:
    containers:
-   - name: myapp
-     image: gcr.io/helical-door-261014/anuragdocker/devops:tagversion
+   - name: webappl
+     image: anurag/k8s:tagversion
      ports:
      - containerPort: 8080
 
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp
+  name: webappl
 spec:
   type: LoadBalancer
   selector:
-    app: myapp
+    app: webappl
   ports:
     - protocol: TCP
       port: 80
