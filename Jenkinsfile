@@ -30,16 +30,22 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
+			    /*Commented to use gcr instead
                       myapp = docker.build("478859/super-league:${env.BUILD_ID}")
-		      
+		      */
+			myapp = docker.build("gcr.io/helical-door-261014/anuragdocker/devops:${env.BUILD_ID}")   
                    }
                 }
 	   }
 	   stage("Push Docker Image") {
                 steps {
                    script {
+			   /*Commented to use gcr instead
 			   docker.withRegistry('https://registry.hub.docker.com', 'Docker-Hub-Credentials') {
-                            myapp.push("${env.BUILD_ID}")		
+                            myapp.push("${env.BUILD_ID}")
+			    */
+			   docker.withRegistry('https://gcr.io', 'gcr:gccredential') {
+                            myapp.push("${env.BUILD_ID}")
 			   }
 		   }
                 }
