@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webapp1
-        image: 478859/super-league:tagversion
+        image: gcr.io/helical-door-261014/anuragdocker/devops:tagversion
         ports:
         - containerPort: 8080
 ---
