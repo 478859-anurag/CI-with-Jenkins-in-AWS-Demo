@@ -30,23 +30,17 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-		     /* commented docker hub image building   
-                      myimage = docker.build("anuragdocker/devops:${env.BUILD_ID}")
-		     */
-		      myimage = docker.build("gcr.io/helical-door-261014/anuragdocker/devops:${env.BUILD_ID}")
+		    
+                      myapp = docker.build("anurag/k8s:${env.BUILD_ID}"
+		      
                    }
                 }
 	   }
 	   stage("Push Docker Image") {
                 steps {
                    script {
-                   /*   //Commented Docker Hub registry push
-			   docker.withRegistry('https://registry.hub.docker.com', 'docker') {
-                            myimage.push("${env.BUILD_ID}")		
-                     }
-		     */
-			   docker.withRegistry('https://gcr.io', 'gcr:gcrcredential') {
-                            myimage.push("${env.BUILD_ID}")		
+			   docker.withRegistry('https://registry.hub.docker.com', 'Docker-Hub-Credentials') {
+                            myapp.push("${env.BUILD_ID}")		
                      }
 			   
                    }
