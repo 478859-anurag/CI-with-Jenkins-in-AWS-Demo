@@ -30,8 +30,7 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-		    
-                      myapp = docker.build("anurag/k8s:${env.BUILD_ID}"
+                      myapp = docker.build("anurag/k8s:${env.BUILD_ID}")
 		      
                    }
                 }
@@ -42,6 +41,7 @@ pipeline {
 			   docker.withRegistry('https://registry.hub.docker.com', 'Docker-Hub-Credentials') {
                             myapp.push("${env.BUILD_ID}")		
 			   }
+		   }
                 }
             }
 	   
