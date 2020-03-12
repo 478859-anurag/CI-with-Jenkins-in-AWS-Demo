@@ -17,7 +17,7 @@ spec:
   spec:
    containers:
    - name: myapp
-     image: gcr.io/third-fire-260721/kumarmitdocker/devops:tagversion
+     image: gcr.io/helical-door-261014/anuragdocker/devops:tagversion
      ports:
      - containerPort: 8080
 
