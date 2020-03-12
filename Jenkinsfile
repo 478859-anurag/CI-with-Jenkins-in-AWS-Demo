@@ -41,9 +41,7 @@ pipeline {
                    script {
 			   docker.withRegistry('https://registry.hub.docker.com', 'Docker-Hub-Credentials') {
                             myapp.push("${env.BUILD_ID}")		
-                     }
-			   
-                   }
+			   }
                 }
             }
 	   
